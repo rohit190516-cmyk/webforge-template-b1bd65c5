@@ -6,6 +6,41 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+
+    --primary: 37 90% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 4%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 37 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 37 90% 55%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
     --background: 0 0% 4%;
     --foreground: 0 0% 100%;
 
@@ -33,11 +68,6 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 37 90% 55%;
-
-    --radius: 0.75rem;
-
-    --font-heading: 'Syne', sans-serif;
-    --font-body: 'Inter', sans-serif;
   }
 }
 
@@ -112,6 +142,28 @@
 }
 .animate-testimonial:hover {
   animation-play-state: paused;
+}
+
+/* Hero Animations */
+@keyframes blob {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  33% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  66% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+}
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-blob {
+  animation: blob 10s linear infinite;
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+.shadow-3xl {
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
 }
 
 /* Orange glow */

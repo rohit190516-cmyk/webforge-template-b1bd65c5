@@ -1,18 +1,24 @@
 const works = [
   {
-    num: "01", cat: "Web Development", title: "E-Commerce Platform",
-    desc: "Built a blazing-fast e-commerce platform from scratch.",
-    metrics: ["Traffic +140%", "Satisfaction 98%"],
+    num: "01", cat: "shopping website", title: "vizeronline",
+    desc: "Experience the fusion of technology and elegance in every sip. Intelligent hydration experience.",
+    metrics: ["Tech-Fused", "Smart Hydration"],
+    color: "from-zinc-800 via-slate-900 to-black",
+    link: "https://vizeronline.co.in"
   },
   {
-    num: "02", cat: "SEO", title: "Retail Brand Growth",
+    num: "02", cat: "web development", title: "Natures Flow",
+    desc: "Nature's Flow - Pure Water, Pure Bliss",
+    metrics: ["Purity 100%", "Delivery 24/7"],
+    color: "from-blue-600 to-cyan-500",
+    link: "https://nature-flow-water.vercel.app/"
+  },
+  {
+    num: "03", cat: "SEO", title: "Retail Brand Growth",
     desc: "Drove 3x organic traffic in 6 months for a retail brand.",
     metrics: ["Traffic +200%", "Rankings #1-3"],
-  },
-  {
-    num: "03", cat: "Branding", title: "D2C Visual Identity",
-    desc: "Crafted a full visual identity for a D2C startup.",
-    metrics: ["Brand Recall +85%", "Engagement +60%"],
+    color: "from-orange-600 to-amber-500",
+    link: "#"
   },
 ];
 
@@ -26,26 +32,31 @@ export default function RecentWorks() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {works.map((w) => (
-            <div key={w.num} className="scroll-reveal group bg-card border border-border rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-400">
-              <div className="aspect-video" style={{
-                background: `linear-gradient(135deg, hsl(37 80% 40% / 0.4), hsl(0 0% 12%))`,
-              }} />
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-primary font-heading font-bold text-sm">{w.num}</span>
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">{w.cat}</span>
+            <a 
+              key={w.num} 
+              href={w.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="scroll-reveal group block bg-card border border-border rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
+            >
+              <div className={`aspect-video bg-gradient-to-br ${w.color} opacity-80 group-hover:opacity-100 transition-opacity`} />
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-primary font-heading font-extrabold text-sm tracking-tighter">{w.num}</span>
+                  <div className="h-px w-8 bg-border" />
+                  <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-[0.2em]">{w.cat}</span>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-2">{w.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{w.desc}</p>
-                <div className="flex gap-2">
+                <h3 className="font-heading font-bold text-2xl text-foreground mb-3">{w.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">"{w.desc}"</p>
+                <div className="flex flex-wrap gap-2">
                   {w.metrics.map((m) => (
-                    <span key={m} className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                    <span key={m} className="text-[10px] bg-secondary text-secondary-foreground px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                       {m}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

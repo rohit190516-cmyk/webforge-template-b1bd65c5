@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 200, suffix: "+", label: "Projects Delivered" },
+  { value: 20, suffix: "+", label: "Projects Delivered" },
   { value: 95, suffix: "%", label: "Client Satisfaction" },
-  { value: 3, suffix: "+", label: "Years of Experience" },
-  { value: 50, suffix: "+", label: "Brands Built" },
+  { value: 10, suffix: "+", label: "Brands Built" },
 ];
 
 function AnimatedNumber({ target, active }: { target: number; active: boolean }) {
@@ -55,8 +54,8 @@ export default function AboutStats() {
             About <span className="text-primary">WebForge</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            WebForge is a results-driven digital agency. We turn ideas into powerful online experiences
-            through clean code, smart SEO, and bold branding.
+            WebForge helps businesses build a strong online presence and generate real growth through 
+            modern websites, smart SEO, and impactful branding.
           </p>
         </div>
 

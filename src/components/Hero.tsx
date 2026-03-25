@@ -47,26 +47,101 @@ export default function Hero() {
               ))}
             </div>
             <span className="text-muted-foreground text-sm font-medium">
-              <span className="text-foreground font-semibold">500+</span> satisfied clients
+              <span className="text-foreground font-semibold">20+</span> satisfied clients
             </span>
           </div>
         </div>
 
-        {/* Right — image placeholder */}
+        {/* Right — 3D UI Composition */}
         <div className="relative scroll-reveal" ref={imgRef}>
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden" style={{
-            background: "linear-gradient(135deg, hsl(37 90% 55% / 0.3), hsl(0 0% 15%), hsl(37 50% 30% / 0.5))",
-          }}>
-            <div className="w-full h-full flex items-end justify-center p-8">
-              <div className="w-3/4 h-2/3 rounded-xl" style={{
-                background: "linear-gradient(180deg, hsl(0 0% 20%), hsl(0 0% 10%))",
-              }} />
+          <div className="aspect-[4/5] relative">
+            {/* Organic Background Shape */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-br from-primary to-orange-600 rounded-[40% 60% 70% 30% / 40% 50% 60% 50%] opacity-40 animate-blob" />
+
+            {/* Floating Panels */}
+            {/* Top: On Boarding */}
+            <div className="absolute top-[10%] left-[10%] w-[70%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4 shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-700">
+              <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-tighter">On Boarding</span>
+                <div className="flex gap-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="h-20 bg-white/5 rounded-lg overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                  <div className="flex flex-col justify-end p-2 h-full">
+                    <div className="w-2/3 h-2 bg-white/20 rounded-full mb-1" />
+                    <div className="w-1/2 h-2 bg-white/10 rounded-full" />
+                  </div>
+                </div>
+                <div className="h-20 bg-white/5 rounded-lg p-2 flex flex-col justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-white/10" />
+                    <div className="w-1/2 h-2 bg-white/20 rounded-full" />
+                  </div>
+                  <div className="grid grid-cols-7 gap-1">
+                    {[...Array(7)].map((_, i) => (
+                      <div key={i} className="h-4 bg-white/5 rounded-sm" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Middle: Analytics */}
+            <div className="absolute top-[40%] right-[5%] w-[65%] bg-black/40 backdrop-blur-2xl border border-white/10 rounded-xl p-5 shadow-3xl rotate-[3deg] hover:rotate-0 transition-transform duration-700">
+              <div className="mb-4">
+                <div className="text-[10px] font-bold text-primary mb-1 uppercase tracking-widest">Growth</div>
+                <div className="text-sm font-bold text-white">Analytics Dashboard</div>
+              </div>
+              <div className="flex items-end gap-3 h-24">
+                {[40, 70, 50, 90, 60, 80, 45].map((h, i) => (
+                  <div 
+                    key={i} 
+                    className="flex-1 bg-primary/40 rounded-t-sm relative group"
+                    style={{ height: `${h}%` }}
+                  >
+                    <div className="absolute inset-0 bg-primary opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Left: Wireframes */}
+            <div className="absolute bottom-[10%] left-[5%] w-[55%] bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-4 shadow-xl -rotate-3 hover:rotate-0 transition-transform duration-700">
+              <div className="text-[10px] font-bold text-white/40 mb-3 border-b border-white/5 pb-1">WIREFRMS</div>
+              <div className="space-y-2">
+                <div className="flex gap-2">
+                  <div className="aspect-square w-8 bg-primary/10 border border-primary/20 rounded" />
+                  <div className="flex-1 space-y-1.5 py-1">
+                    <div className="w-full h-1.5 bg-white/10 rounded-full" />
+                    <div className="w-1/2 h-1.5 bg-white/5 rounded-full" />
+                  </div>
+                </div>
+                <div className="w-full h-12 border border-dashed border-white/10 rounded-lg" />
+              </div>
+            </div>
+
+            {/* Bottom Right: Mobile Screen */}
+            <div className="absolute bottom-[5%] right-[10%] w-[30%] aspect-[9/19] bg-zinc-900 border-[3px] border-zinc-700/50 rounded-[2rem] p-2 shadow-2xl rotate-2 skew-y-2 hover:rotate-0 hover:skew-y-0 transition-all duration-700 group">
+              <div className="w-1/3 h-1 bg-zinc-800 rounded-full mx-auto mb-2" />
+              <div className="space-y-2 px-1">
+                <div className="w-full aspect-square bg-white/5 rounded-xl overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-orange-400/20" />
+                </div>
+                <div className="w-full h-2 bg-white/10 rounded-full" />
+                <div className="w-2/3 h-2 bg-white/5 rounded-full" />
+                <div className="flex gap-2 mt-2">
+                  <div className="w-full h-6 bg-primary/20 rounded-lg" />
+                </div>
+              </div>
             </div>
           </div>
-          {/* Rating badge */}
-          <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full font-heading font-bold text-sm flex items-center gap-1 shadow-lg">
-            5.0 ★
-          </div>
+
         </div>
       </div>
     </section>

@@ -1,8 +1,24 @@
 const testimonials = [
-  { text: "WebForge transformed our online presence completely.", name: "Aryan Mehta", role: "CEO" },
-  { text: "Our website traffic tripled in 3 months. Incredible team.", name: "Priya Singh", role: "Founder" },
-  { text: "Best branding work we've ever seen. Professional and creative.", name: "Rahul Verma", role: "CMO" },
-  { text: "The SEO results were beyond our expectations.", name: "Neha Gupta", role: "Marketing Head" },
+  { 
+    text: "WebForge helped us build a strong and authentic online presence for Nature’s Flow. Our brand now truly connects with our audience.", 
+    name: "Sunil Rai", 
+    role: "Founder, Nature’s Flow" 
+  },
+  { 
+    text: "From website to branding, WebForge handled everything perfectly. The final result exceeded our expectations.", 
+    name: "Vedant Shukla", 
+    role: "Owner, Vizer Online" 
+  },
+  { 
+    text: "We started getting more local customers after our website went live. Simple, effective, and great support from the team.", 
+    name: "Rajesh Kumar", 
+    role: "Owner, Mega-Print" 
+  },
+  { 
+    text: "WebForge built my website and personal brand from scratch. It gave me a professional identity and boosted my online growth.", 
+    name: "Tanmay", 
+    role: "Influencer (52K+ Followers)" 
+  },
 ];
 
 export default function Testimonials() {

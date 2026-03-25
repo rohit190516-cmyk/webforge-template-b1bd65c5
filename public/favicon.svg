@@ -1,0 +1,29 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="128" cy="128" r="120" fill="#000000"/>
+  <!-- Earth Globe -->
+  <circle cx="100" cy="150" r="60" fill="url(#globeGradient)"/>
+  <path d="M100 90C133.137 90 160 116.863 160 150C160 183.137 133.137 210 100 210C66.8629 210 40 183.137 40 150C40 116.863 66.8629 90 100 90Z" fill="url(#globeGradient)"/>
+  <!-- Land masses -->
+  <path d="M70 130C75 125 85 125 90 130M120 160C125 155 135 155 140 160" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Hammer -->
+  <g transform="rotate(40 160 100)">
+    <!-- Handle -->
+    <rect x="155" y="80" width="8" height="70" rx="4" fill="#1E3A8A"/>
+    <!-- Head -->
+    <rect x="130" y="75" width="40" height="25" rx="2" fill="#3B82F6"/>
+    <rect x="125" y="80" width="5" height="15" rx="1" fill="#60A5FA"/>
+    <path d="M170 75C178 75 182 80 182 87.5C182 95 178 100 170 100V75Z" fill="#1D4ED8"/>
+  </g>
+  
+  <!-- Splashes -->
+  <circle cx="150" cy="110" r="3" fill="#60A5FA"/>
+  <circle cx="160" cy="120" r="2" fill="#60A5FA"/>
+
+  <defs>
+    <radialGradient id="globeGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 150) rotate(90) scale(60)">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1E40AF"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const services = [
-  { title: "Web Development", desc: "Custom websites, web apps, landing pages" },
-  { title: "SEO Optimization", desc: "Rank higher, drive organic traffic" },
-  { title: "Branding", desc: "Identity design, logo, brand strategy" },
-  { title: "Digital Marketing", desc: "Campaigns that convert" },
+  { title: "Websites That Convert Visitors into Clients", desc: "Custom websites, web apps, landing pages" },
+  { title: "SEO That Brings Consistent Traffic", desc: "Rank higher, drive organic traffic" },
+  { title: "Branding That Builds Trust", desc: "Identity design, logo, brand strategy" },
+  { title: "Marketing That Drives Growth", desc: "Campaigns that convert" },
 ];
 
 export default function ServicesAccordion() {
@@ -41,18 +41,7 @@ export default function ServicesAccordion() {
                 style={{ maxHeight: open === i ? "300px" : "0" }}
               >
                 <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <p className="text-muted-foreground mb-4">{s.desc}</p>
-                  <div className="flex gap-4">
-                    {[0, 1, 2].map((j) => (
-                      <div
-                        key={j}
-                        className="w-24 h-16 md:w-32 md:h-20 rounded-lg"
-                        style={{
-                          background: `linear-gradient(135deg, hsl(${37 + j * 15} 60% ${30 + j * 10}%), hsl(${50 + j * 15} 40% ${20 + j * 5}%))`,
-                        }}
-                      />
-                    ))}
-                  </div>
+                  <p className="text-muted-foreground">{s.desc}</p>
                 </div>
               </div>
             </div>
