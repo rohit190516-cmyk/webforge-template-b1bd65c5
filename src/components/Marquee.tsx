@@ -3,15 +3,19 @@ const strip = items.join(" • ") + " • ";
 
 export default function Marquee() {
   return (
-    <section className="py-8 overflow-hidden border-y border-border">
+    <section className="relative min-h-[200px] md:min-h-[300px] flex items-center justify-center overflow-hidden bg-background my-0 md:my-16">
       {[false, true].map((reverse, idx) => (
-        <div 
-          key={idx} 
-          className={`flex whitespace-nowrap ${idx === 1 ? "mt-8 pt-8 border-t border-border/50" : ""}`}
+        <div
+          key={idx}
+          className={`absolute w-[120vw] flex whitespace-nowrap py-4 md:py-6 shadow-2xl border-y border-border/50 ${idx === 0
+              ? "bg-background -rotate-6 z-10"
+              : "bg-primary rotate-6 z-20"
+            }`}
         >
-          <div className={reverse ? "animate-marquee-right" : "animate-marquee-left"}>
-            <span className="font-heading font-bold text-2xl md:text-4xl text-foreground px-4">
-              {strip}{strip}
+          <div className={reverse ? "animate-marquee-right flex" : "animate-marquee-left flex"}>
+            <span className={`font-heading font-bold text-3xl md:text-5xl px-4 ${idx === 0 ? "text-foreground" : "text-primary-foreground"
+              }`}>
+              {strip}{strip}{strip}{strip}
             </span>
           </div>
         </div>

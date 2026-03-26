@@ -26,8 +26,8 @@ export default function Navbar() {
       </div>
 
       <nav
-        className={`fixed top-9 left-0 w-full z-50 transition-all duration-400 ${
-          scrolled ? "bg-background/95 backdrop-blur-md shadow-lg py-3" : "bg-transparent py-5"
+        className={`fixed left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "top-0 bg-background/95 backdrop-blur-md shadow-lg py-3" : "top-9 bg-transparent py-5"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-6">
