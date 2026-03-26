@@ -12,7 +12,7 @@ const team = [
   },
   {
     name: "Rohit Yadav",
-    role: "UI/UX Designer , Manager",
+    role: "UI/UX Designer & Manager",
     gradient: "from-purple-600/20 via-indigo-900/10 to-transparent",
     orb: "bg-purple-600",
     borderClass: "group-hover:border-purple-500/30",
