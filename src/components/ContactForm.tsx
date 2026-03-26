@@ -14,7 +14,8 @@ export default function ContactForm() {
     setPending(true);
     setStatus("idle");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -26,7 +27,7 @@ export default function ContactForm() {
 
       if (data.success) {
         setStatus("success");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         setStatus("error");
         console.error("Web3Forms error:", data);
