@@ -7,15 +7,39 @@ import { Send } from "lucide-react";
 
 export default function ContactForm() {
   const [pending, setPending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setPending(true);
-    setTimeout(() => {
+    setStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+        console.error("Web3Forms error:", data);
+      }
+    } catch (error) {
+      setStatus("error");
+      console.error("Submission failed:", error);
+    } finally {
       setPending(false);
-      alert("Message sent successfully!");
-    }, 1500);
+    }
   };
+
+  const glassInputClass = "bg-background/40 border-white/10 backdrop-blur-xl focus-visible:border-primary/50 focus-visible:ring-primary/20 focus-visible:shadow-[0_0_15px_rgba(234,179,8,0.15)] transition-all";
 
   return (
     <section id="contact" className="py-24 bg-secondary/30">
@@ -43,41 +67,63 @@ export default function ContactForm() {
                   <span>Flawless Execution</span>
                 </div>
               </div>
-            </div>add
+            </div>
 
             <div className="p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
+                
+                {/* Web3Forms Hidden Fields */}
+                <input type="hidden" name="access_key" value="a2503466-049a-42d4-8323-157c856a8202" />
+                <input type="hidden" name="subject" value="New Lead from WebForge" />
+                <input type="hidden" name="from_name" value="WebForge Website" />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+                
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your Name" required className="bg-background border-border" />
+                    <Input id="name" name="name" placeholder="Your Name" required className={glassInputClass} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Your Email" required className="bg-background border-border" />
+                    <Input id="email" name="email" type="email" placeholder="Your Email" required className={glassInputClass} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="project">Project Type</Label>
-                  <Input id="project" placeholder="Web Development, SEO..." className="bg-background border-border" />
+                  <Input id="project" name="project" placeholder="Web Development, SEO..." className={glassInputClass} />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Tell us about your project..."
-                    className="min-h-[120px] bg-background border-border"
+                    className={`min-h-[120px] ${glassInputClass}`}
                     required
                   />
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-lg font-semibold gap-2"
-                  disabled={pending}
-                >
-                  {pending ? "Sending..." : "Send Message"}
-                  <Send className="w-4 h-4" />
-                </Button>
+                
+                <div className="space-y-3">
+                  <Button
+                    type="submit"
+                    className="w-full h-12 text-lg font-semibold gap-2 transition-all hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
+                    disabled={pending}
+                  >
+                    {pending ? "Sending..." : "Send Message"}
+                    <Send className="w-4 h-4" />
+                  </Button>
+                  
+                  {status === "success" && (
+                    <div className="text-emerald-500 text-sm font-medium text-center bg-emerald-500/10 py-2 rounded-lg border border-emerald-500/20">
+                      Message sent successfully!
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="text-destructive text-sm font-medium text-center bg-destructive/10 py-2 rounded-lg border border-destructive/20">
+                      Something went wrong. Please try again.
+                    </div>
+                  )}
+                </div>
               </form>
             </div>
           </div>
