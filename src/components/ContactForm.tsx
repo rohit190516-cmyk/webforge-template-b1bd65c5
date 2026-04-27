@@ -16,11 +16,29 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const whatsapp = formData.get("whatsapp") as string;
+    const project = formData.get("project") as string;
+    const message = formData.get("message") as string;
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "a2503466-049a-42d4-8323-157c856a8202",
+          name,
+          email,
+          whatsapp,
+          project,
+          message,
+          subject: `New Lead from ${name}`,
+          from_name: "WebForge Website",
+        }),
       });
 
       const data = await response.json();
@@ -30,7 +48,7 @@ export default function ContactForm() {
         form.reset();
       } else {
         setStatus("error");
-        console.error("Web3Forms error:", data);
+        console.error("Submission error:", data);
       }
     } catch (error) {
       setStatus("error");
@@ -73,12 +91,6 @@ export default function ContactForm() {
             <div className="p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Web3Forms Hidden Fields */}
-                <input type="hidden" name="access_key" value="a2503466-049a-42d4-8323-157c856a8202" />
-                <input type="hidden" name="subject" value="New Lead from WebForge" />
-                <input type="hidden" name="from_name" value="WebForge Website" />
-                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
-                
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
@@ -89,9 +101,21 @@ export default function ContactForm() {
                     <Input id="email" name="email" type="email" placeholder="Your Email" required className={glassInputClass} />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="project">Project Type</Label>
-                  <Input id="project" name="project" placeholder="Web Development, SEO..." className={glassInputClass} />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="whatsapp">WhatsApp Number</Label>
+                    <Input 
+                      id="whatsapp" 
+                      name="whatsapp" 
+                      defaultValue="+91 "
+                      placeholder="+91 (555) 000-0000" 
+                      className={glassInputClass} 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="project">Project Type</Label>
+                    <Input id="project" name="project" placeholder="Web Development, SEO..." className={glassInputClass} />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Message</Label>
