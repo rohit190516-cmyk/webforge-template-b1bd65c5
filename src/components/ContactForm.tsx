@@ -65,14 +65,14 @@ export default function ContactForm() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl overflow-hidden shadow-2xl">
           <div className="grid md:grid-cols-2">
-            <div className="p-6 md:p-12 bg-primary text-primary-foreground flex flex-col justify-center">
-              <h2 className="font-heading font-bold text-2xl md:text-5xl mb-4 md:mb-6">
+            <div className="p-8 md:p-12 bg-primary text-primary-foreground flex flex-col justify-center">
+              <h2 className="font-heading font-bold text-2xl md:text-5xl mb-6 md:mb-8 leading-tight">
                 Let's build something <span className="opacity-80 italic">extraordinary</span>.
               </h2>
-              <p className="text-base md:text-lg opacity-90 mb-6 md:mb-8">
+              <p className="text-base md:text-lg opacity-90 mb-8 md:mb-10">
                 Ready to take your digital presence to the next level? Fill out the form and we'll get back to you within 24 hours.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-5 md:space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center font-bold">1</div>
                   <span>Expert Consultation</span>
@@ -88,7 +88,7 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="p-6 md:p-12">
+            <div className="p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 
                 <div className="grid sm:grid-cols-2 gap-4">
