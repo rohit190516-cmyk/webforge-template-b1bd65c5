@@ -4,66 +4,57 @@ export default function Hero() {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      if (imgRef.current) {
-        imgRef.current.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (imgRef.current) {
+            imgRef.current.style.transform = `translateY(${window.scrollY * 0.1}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <>
+      <section id="home" className="min-h-screen relative overflow-hidden flex flex-col">
+      <div className="container mx-auto px-6 flex-1 flex flex-col justify-center pt-32 md:pt-40 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left */}
         <div className="scroll-reveal">
-          <h1 className="font-heading font-extrabold text-5xl md:text-7xl lg:text-[90px] leading-[1.05] tracking-tight text-foreground">
-            Where Ideas Become{" "}
-            <span className="text-primary">Digital Reality</span>
+          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] md:leading-[1.05] tracking-tight text-foreground break-words">
+            Website Development Agency for <span className="text-primary">High-Performance Brands</span>
           </h1>
           <p className="mt-6 text-muted-foreground text-lg max-w-lg leading-relaxed">
-            We build powerful websites, grow your search presence, and craft brands that leave a mark.
+            As a premier <span className="text-foreground font-semibold">website development agency in India</span>, we build powerful websites, grow your search presence, and craft brands that leave a mark.
           </p>
-          <a
-            href="#contact"
-            className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-heading font-bold text-lg hover:brightness-110 transition-all group"
-          >
-            Get Started
-            <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
-          </a>
-
-          {/* Avatars */}
-          <div className="mt-10 flex items-center gap-3">
-            <div className="flex -space-x-3">
-              {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 rounded-full border-2 border-background"
-                  style={{
-                    background: `linear-gradient(135deg, hsl(${37 + i * 30} 70% 50%), hsl(${60 + i * 30} 60% 40%))`,
-                  }}
-                />
-              ))}
-            </div>
-            <span className="text-muted-foreground text-sm font-medium">
-              <span className="text-foreground font-semibold">20+</span> satisfied clients
-            </span>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-heading font-bold text-lg hover:brightness-110 transition-all group shadow-lg shadow-primary/20"
+            >
+              Get Started
+              <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
+            </a>
           </div>
         </div>
 
         {/* Right — 3D UI Composition */}
-        <div className="relative scroll-reveal" ref={imgRef}>
+        <div className="relative scroll-reveal scale-75 md:scale-100 origin-center" ref={imgRef}>
           <div className="aspect-[4/5] relative">
             {/* Organic Background Shape */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-br from-primary to-orange-600 rounded-[40% 60% 70% 30% / 40% 50% 60% 50%] opacity-40 animate-blob" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] md:w-[120%] md:h-[120%] bg-primary/20 rounded-full blur-[80px] md:blur-[120px] animate-pulse" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] md:w-[80%] md:h-[80%] bg-gradient-to-br from-primary to-orange-600 rounded-[40% 60% 70% 30% / 40% 50% 60% 50%] opacity-40 animate-blob" />
 
             {/* Floating Panels */}
             {/* Top: On Boarding */}
             <div className="absolute top-[10%] left-[10%] w-[70%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4 shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-700">
               <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-tighter">On Boarding</span>
                 <div className="flex gap-1">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
                   <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
@@ -95,8 +86,8 @@ export default function Hero() {
             {/* Middle: Analytics */}
             <div className="absolute top-[40%] right-[5%] w-[65%] bg-black/40 backdrop-blur-2xl border border-white/10 rounded-xl p-5 shadow-3xl rotate-[3deg] hover:rotate-0 transition-transform duration-700">
               <div className="mb-4">
-                <div className="text-[10px] font-bold text-primary mb-1 uppercase tracking-widest">Growth</div>
-                <div className="text-sm font-bold text-white">Analytics Dashboard</div>
+                <div className="w-12 h-2 bg-primary/40 rounded-full mb-1" />
+                <div className="w-24 h-3 bg-white/20 rounded-full" />
               </div>
               <div className="flex items-end gap-3 h-24">
                 {[40, 70, 50, 90, 60, 80, 45].map((h, i) => (
@@ -113,7 +104,7 @@ export default function Hero() {
 
             {/* Left: Wireframes */}
             <div className="absolute bottom-[10%] left-[5%] w-[55%] bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-4 shadow-xl -rotate-3 hover:rotate-0 transition-transform duration-700">
-              <div className="text-[10px] font-bold text-white/40 mb-3 border-b border-white/5 pb-1">WIREFRMS</div>
+              <div className="w-16 h-2 bg-white/10 rounded-full mb-3" />
               <div className="space-y-2">
                 <div className="flex gap-2">
                   <div className="aspect-square w-8 bg-primary/10 border border-primary/20 rounded" />
@@ -143,7 +134,9 @@ export default function Hero() {
           </div>
 
         </div>
+        </div>
       </div>
     </section>
+    </>
   );
 }

@@ -1,5 +1,17 @@
-const quickLinks = ["Home", "About", "Services", "Work", "Contact"];
-const serviceLinks = ["Web Dev", "SEO", "Branding", "Digital Marketing"];
+import { Link } from "react-router-dom";
+
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" }
+];
+const serviceLinks = [
+  { name: "Web Development", path: "/website-development-agency" },
+  { name: "Shopify Development", path: "/shopify-development-agency" },
+  { name: "Ecommerce Solutions", path: "/ecommerce-website-development" },
+  { name: "UI/UX Design", path: "/web-design-agency" }
+];
 const socialLinks = ["Instagram", "LinkedIn", "Twitter/X"];
 
 export default function Footer() {
@@ -10,14 +22,18 @@ export default function Footer() {
           <div>
             <div className="font-heading font-bold text-2xl text-foreground mb-4">WebForge</div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Turning ideas into powerful digital experiences.
+              Your professional website agency for turning ideas into powerful digital experiences.
             </p>
           </div>
           <div>
             <h4 className="font-heading font-bold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((l) => (
-                <li key={l}><a href={`#${l.toLowerCase()}`} className="text-muted-foreground text-sm hover:text-primary transition-colors">{l}</a></li>
+                <li key={l.name}>
+                  <Link to={l.path} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                    {l.name}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
@@ -25,7 +41,11 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-foreground mb-4">Services</h4>
             <ul className="space-y-2">
               {serviceLinks.map((l) => (
-                <li key={l} className="text-muted-foreground text-sm">{l}</li>
+                <li key={l.name}>
+                  <Link to={l.path} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                    {l.name}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

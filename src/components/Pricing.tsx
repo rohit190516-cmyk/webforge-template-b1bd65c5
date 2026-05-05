@@ -1,3 +1,5 @@
+import RequestCallBack from "./RequestCallBack";
+
 export default function Pricing() {
   return (
     <section id="pricing" className="py-24">
@@ -9,13 +11,10 @@ export default function Pricing() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
             Every project is unique. We offer custom pricing based on your specific goals and requirements.
           </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 rounded-xl font-heading font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-primary/20 group"
-          >
-            Get Custom Quote
-            <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
-          </a>
+          <RequestCallBack 
+            buttonText="Request Call Back"
+            className="h-auto bg-primary text-primary-foreground px-10 py-5 rounded-xl font-heading font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-primary/20"
+          />
         </div>
       </div>
     </section>

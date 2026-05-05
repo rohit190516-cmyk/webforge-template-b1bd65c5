@@ -50,11 +50,11 @@ export default function AboutStats() {
     <section id="about" className="py-24" ref={ref}>
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="scroll-reveal">
-          <h2 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground mb-6 break-words">
             About <span className="text-primary">WebForge</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            WebForge helps businesses build a strong online presence and generate real growth through 
+            As a dedicated <span className="text-foreground font-semibold">website agency</span>, WebForge helps businesses build a strong online presence and generate real growth through 
             modern websites, smart SEO, and impactful branding.
           </p>
         </div>

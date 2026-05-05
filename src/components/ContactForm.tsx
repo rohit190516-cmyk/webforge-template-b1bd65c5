@@ -65,11 +65,11 @@ export default function ContactForm() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl overflow-hidden shadow-2xl">
           <div className="grid md:grid-cols-2">
-            <div className="p-8 md:p-12 bg-primary text-primary-foreground flex flex-col justify-center">
-              <h2 className="font-heading font-bold text-3xl md:text-5xl mb-6">
+            <div className="p-6 md:p-12 bg-primary text-primary-foreground flex flex-col justify-center">
+              <h2 className="font-heading font-bold text-2xl md:text-5xl mb-4 md:mb-6">
                 Let's build something <span className="opacity-80 italic">extraordinary</span>.
               </h2>
-              <p className="text-lg opacity-90 mb-8">
+              <p className="text-base md:text-lg opacity-90 mb-6 md:mb-8">
                 Ready to take your digital presence to the next level? Fill out the form and we'll get back to you within 24 hours.
               </p>
               <div className="space-y-4">
@@ -88,8 +88,8 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="p-8 md:p-12">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="p-6 md:p-12">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -131,7 +131,7 @@ export default function ContactForm() {
                 <div className="space-y-3">
                   <Button
                     type="submit"
-                    className="w-full h-12 text-lg font-semibold gap-2 transition-all hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
+                    className="w-full h-10 md:h-12 text-base md:text-lg font-semibold gap-2 transition-all hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]"
                     disabled={pending}
                   >
                     {pending ? "Sending..." : "Send Message"}

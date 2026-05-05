@@ -15,7 +15,7 @@ export default function FAQ() {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="scroll-reveal font-heading font-bold text-3xl md:text-5xl text-foreground mb-16 text-center">
+        <h2 className="scroll-reveal font-heading font-bold text-2xl sm:text-3xl md:text-5xl text-foreground mb-16 text-center break-words">
           Got Questions? We've Got <span className="text-primary">Answers</span>.
         </h2>
         <div className="space-y-3">

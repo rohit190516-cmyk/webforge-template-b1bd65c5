@@ -20,35 +20,49 @@ const works = [
     color: "from-orange-600 to-amber-500",
     link: "#"
   },
+  {
+    num: "04", cat: "Web Development", title: "Simran Hostel",
+    desc: "Premium girls-only hostel in Greater Noida providing safe, comfortable, and modern living spaces.",
+    metrics: ["Girls-Only", "Greater Noida"],
+    color: "from-pink-600 to-rose-500",
+    link: "https://simran-hostel.in"
+  },
+  {
+    num: "05", cat: "SaaS Application", title: "Gstmate",
+    desc: "A powerful, intuitive invoice generator web application designed to simplify GST-compliant billing for businesses.",
+    metrics: ["GST-Ready", "Fast Billing"],
+    color: "from-emerald-600 to-teal-500",
+    link: "https://Gstmate2.vercel.app"
+  },
 ];
 
 export default function RecentWorks() {
   return (
     <section id="work" className="py-24">
       <div className="container mx-auto px-6">
-        <h2 className="scroll-reveal font-heading font-bold text-4xl md:text-6xl text-foreground mb-16">
+        <h2 className="scroll-reveal font-heading font-bold text-3xl sm:text-4xl md:text-6xl text-foreground mb-16 break-words">
           Recent <span className="text-primary">Works</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {works.map((w) => (
             <a 
               key={w.num} 
               href={w.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="scroll-reveal group block bg-card border border-border rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
+              className="scroll-reveal group block bg-card border border-border rounded-xl md:rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500"
             >
               <div className={`aspect-video bg-gradient-to-br ${w.color} opacity-80 group-hover:opacity-100 transition-opacity`} />
-              <div className="p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-primary font-heading font-extrabold text-sm tracking-tighter">{w.num}</span>
-                  <div className="h-px w-8 bg-border" />
-                  <span className="text-muted-foreground text-[10px] uppercase font-bold tracking-[0.2em]">{w.cat}</span>
+              <div className="p-4 md:p-8">
+                <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+                  <span className="text-primary font-heading font-extrabold text-[10px] md:text-sm tracking-tighter">{w.num}</span>
+                  <div className="h-px w-4 md:w-8 bg-border" />
+                  <span className="text-muted-foreground text-[8px] md:text-[10px] uppercase font-bold tracking-[0.1em] md:tracking-[0.2em]">{w.cat}</span>
                 </div>
-                <h3 className="font-heading font-bold text-2xl text-foreground mb-3">{w.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">"{w.desc}"</p>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="font-heading font-bold text-base md:text-2xl text-foreground mb-1 md:mb-3">{w.title}</h3>
+                <p className="text-muted-foreground text-[10px] md:text-sm leading-relaxed mb-3 md:mb-6 italic line-clamp-2 md:line-clamp-none">"{w.desc}"</p>
+                <div className="hidden md:flex flex-wrap gap-2">
                   {w.metrics.map((m) => (
                     <span key={m} className="text-[10px] bg-secondary text-secondary-foreground px-3 py-1 rounded-full font-bold uppercase tracking-wider">
                       {m}

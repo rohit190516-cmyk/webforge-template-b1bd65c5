@@ -1,10 +1,28 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const services = [
-  { title: "Websites That Convert Visitors into Clients", desc: "Custom websites, web apps, landing pages" },
-  { title: "SEO That Brings Consistent Traffic", desc: "Rank higher, drive organic traffic" },
-  { title: "Branding That Builds Trust", desc: "Identity design, logo, brand strategy" },
-  { title: "Marketing That Drives Growth", desc: "Campaigns that convert" },
+  { 
+    title: "Website Development Agency Services", 
+    desc: "Custom websites, web apps, and landing pages designed to convert visitors into clients.",
+    link: "/website-development-agency"
+  },
+  { 
+    title: "Shopify Development & Scaling", 
+    desc: "Expert Shopify development for brands looking to scale their e-commerce operations.",
+    link: "/shopify-development-agency"
+  },
+  { 
+    title: "Ecommerce Website Development", 
+    desc: "Strategic e-commerce solutions built for global growth and high performance.",
+    link: "/ecommerce-website-development"
+  },
+  { 
+    title: "Web Design & UI/UX Strategy", 
+    desc: "Data-driven web design that builds trust and drives brand identity.",
+    link: "/web-design-agency"
+  },
 ];
 
 export default function ServicesAccordion() {
@@ -13,13 +31,13 @@ export default function ServicesAccordion() {
   return (
     <section id="services" className="py-24">
       <div className="container mx-auto px-6">
-        <h2 className="scroll-reveal font-heading font-bold text-4xl md:text-6xl text-foreground mb-16">
-          What We <span className="text-primary">Do</span>
+        <h2 className="scroll-reveal font-heading font-bold text-3xl sm:text-4xl md:text-6xl text-foreground mb-16 break-words">
+          Our <span className="text-primary">Expertise</span>
         </h2>
 
         <div className="space-y-4">
           {services.map((s, i) => (
-            <div key={i} className="scroll-reveal border border-border rounded-xl overflow-hidden transition-all hover:-translate-y-1">
+            <div key={i} className="scroll-reveal border border-border rounded-xl overflow-hidden transition-all hover:-translate-y-1 bg-card/30">
               <button
                 className="w-full flex items-center justify-between p-6 md:p-8 text-left"
                 onClick={() => setOpen(open === i ? null : i)}
@@ -41,7 +59,13 @@ export default function ServicesAccordion() {
                 style={{ maxHeight: open === i ? "300px" : "0" }}
               >
                 <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <p className="text-muted-foreground">{s.desc}</p>
+                  <p className="text-muted-foreground mb-6 max-w-2xl">{s.desc}</p>
+                  <Link 
+                    to={s.link}
+                    className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
+                  >
+                    Learn More <ArrowRight size={18} />
+                  </Link>
                 </div>
               </div>
             </div>
