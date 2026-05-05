@@ -64,7 +64,7 @@ export default function ContactForm() {
     <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl overflow-hidden shadow-2xl">
-          <div className="grid md:grid-cols-[1.2fr_1fr]">
+          <div className="grid md:grid-cols-2">
             <div className="p-6 md:p-12 bg-primary text-primary-foreground flex flex-col justify-center">
               <h2 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl mb-4 md:mb-6 leading-tight break-words">
                 Let's build something <span className="opacity-80 italic">extraordinary</span>.
