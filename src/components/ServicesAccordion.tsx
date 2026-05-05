@@ -6,22 +6,26 @@ const services = [
   { 
     title: "Website Development Agency Services", 
     desc: "Custom websites, web apps, and landing pages designed to convert visitors into clients.",
-    link: "/website-development-agency"
+    link: "/website-development-agency",
+    btnText: "Explore Website Development"
   },
   { 
     title: "Shopify Development & Scaling", 
     desc: "Expert Shopify development for brands looking to scale their e-commerce operations.",
-    link: "/shopify-development-agency"
+    link: "/shopify-development-agency",
+    btnText: "Explore Shopify Solutions"
   },
   { 
     title: "Ecommerce Website Development", 
     desc: "Strategic e-commerce solutions built for global growth and high performance.",
-    link: "/ecommerce-website-development"
+    link: "/ecommerce-website-development",
+    btnText: "Explore E-commerce Development"
   },
   { 
     title: "Web Design & UI/UX Strategy", 
     desc: "Data-driven web design that builds trust and drives brand identity.",
-    link: "/web-design-agency"
+    link: "/web-design-agency",
+    btnText: "Explore Web Design Services"
   },
 ];
 
@@ -64,7 +68,7 @@ export default function ServicesAccordion() {
                     to={s.link}
                     className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
                   >
-                    Learn More <ArrowRight size={18} />
+                    {s.btnText} <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>
